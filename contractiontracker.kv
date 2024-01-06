@@ -1,0 +1,45 @@
+<ContractionTracker>:
+    orientation: 'vertical'
+    spacing: dp(10)
+    MDBoxLayout:
+        orientation: 'vertical'
+        spacing: dp(10)
+        padding: dp(20)
+
+        MDLabel:
+            id: interval_label
+            text: 'Time until next contraction: --'
+            halign: 'center'
+            size_hint_y: None
+            height: dp(40)
+
+        MDLabel:
+            id: info_label
+            text: "Press 'Start' when a contraction begins."
+            halign: 'center'
+            size_hint_y: None
+            height: dp(40)
+
+        BoxLayout:
+            size_hint_y: None
+            height: dp(50)
+            spacing: dp(10)
+
+            MDRaisedButton:
+                id: start_button
+                text: "Start"
+                md_bg_color: app.theme_cls.primary_color
+                on_press: root.start_contraction()
+
+            MDRaisedButton:
+                id: stop_button
+                text: "Stop"
+                md_bg_color: 1, 0, 0, 1
+                disabled: True
+                on_press: root.stop_contraction()
+
+        ScrollView:
+            MDList:
+                id: contractions_list
+                size_hint_y: None
+                height: dp(200)
